@@ -45,4 +45,29 @@ public class EchoApplication {
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
     }
+    
+    @EventMapping
+    public Message handleStickerMessage(MessageEvent<StickerMessageContent> event) {
+        return new TextMessage("スタンプ送信ありがとうございます！");
+    }
+    
+    @EventMapping
+    public Message handleImageMessage(MessageEvent<ImageMessageContent> event) {
+        return new TextMessage("画像送信ありがとうございます！");
+    }
+    
+    @EventMapping
+    public Message handleVideoMessage(MessageEvent<VideoMessageContent> event) {
+        return new TextMessage("動画送信ありがとうございます！");
+    }
+    
+    @EventMapping
+    public Message handleAudioMessage(MessageEvent<AudioMessageContent> event) {
+        return new TextMessage("音声送信ありがとうございます！");
+    }
+
+    @EventMapping
+    public Message handleFollowEvent(FollowEvent event) {
+        return new TextMessage("友達追加ありがとうございます！");
+    }
 }
